@@ -11,5 +11,9 @@
         "src": "/(.*)",
         "dest": "src/app.js"
       }
-    ]
+    ],
+    "env": {
+    "MONGODB_URI": "mongodb+srv://Superashu_:Superashu%40123@cluster0.ofqmd.mongodb.net/?retryWrites=true&w=majority"
+    
+  }
   }
