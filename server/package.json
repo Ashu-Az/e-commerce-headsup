@@ -7,15 +7,16 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "test": "jest",
-    "seed":"node src/utils/seeder.js"
+    "seed": "node src/utils/seeder.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "express-validator": "^7.0.1",
     "mongodb": "^6.12.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.8.3",
+    "axios": "^1.6.2"
   },
   "devDependencies": {
     "jest": "^29.5.0",

@@ -1,116 +1,44 @@
-const mongoose = require('mongoose');
-
-const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please enter product name'],
-    trim: true,
-    maxLength: [100, 'Product name cannot exceed 100 characters']
+// server/src/seedData/products.js
+const products = [
+  {
+    name: "Wireless Headphones",
+    description: "Premium noise cancelling wireless headphones with extended battery life",
+    price: 199.99,
+    category: "Electronics", 
+    color: "Black",
+    size: "NA",
+    stock: 50,
+    images: [{
+      public_id: "headphones_1",
+      url: "https://example.com/headphones.jpg"
+    }]
   },
-  description: {
-    type: String,
-    required: [true, 'Please enter product description'],
-    maxLength: [2000, 'Description cannot exceed 2000 characters']
+  {
+    name: "Running Shoes",
+    description: "Professional running shoes with enhanced cushioning",
+    price: 89.99,
+    category: "Sports",
+    color: "Blue", 
+    size: "42",
+    stock: 30,
+    images: [{
+      public_id: "shoes_1",
+      url: "https://example.com/shoes.jpg"  
+    }]
   },
-  price: {
-    type: Number,
-    required: [true, 'Please enter product price'],
-    maxLength: [8, 'Price cannot exceed 8 characters'],
-    default: 0.0
-  },
-  category: {
-    type: String,
-    required: [true, 'Please select category for this product'],
-    enum: {
-        values: [
-            'Electronics',
-            'Clothing',
-            'Furniture',
-            'Books',
-            'Sports',
-            'Beauty',
-            'Health',
-            'Toys',
-            'Automotive',
-            'Home'
-        ],
-        message: 'Please select correct category'
-    }
-},
-  color: {
-    type: String,
-    required: [true, 'Please enter product color']
-  },
-  size: {
-    type: String,
-    required: [true, 'Please select size'],
-    enum: {
-        values: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'NA', '38', '39', '40', '41', '42', '43', '44', '45'],
-        message: 'Please select correct size'
-    }
-},
-  ratings: {
-    type: Number,
-    default: 0
-  },
-  images: [
-    {
-      public_id: {
-        type: String,
-        required: true
-      },
-      url: {
-        type: String,
-        required: true
-      }
-    }
-  ],
-  stock: {
-    type: Number,
-    required: [true, 'Please enter product stock'],
-    maxLength: [5, 'Stock cannot exceed 5 characters'],
-    default: 0
-  },
-  numOfReviews: {
-    type: Number,
-    default: 0
-  },
-  reviews: [
-    {
-      user: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'User',
-        required: true
-      },
-      name: {
-        type: String,
-        required: true
-      },
-      rating: {
-        type: Number,
-        required: true
-      },
-      comment: {
-        type: String,
-        required: true
-      }
-    }
-  ],
-  createdAt: {
-    type: Date,
-    default: Date.now
+  {
+    name: "Cotton T-Shirt",
+    description: "Comfortable 100% cotton t-shirt",
+    price: 29.99,
+    category: "Clothing",
+    color: "White",
+    size: "M",
+    stock: 100,
+    images: [{
+      public_id: "tshirt_1",
+      url: "https://example.com/tshirt.jpg"
+    }]
   }
-}, {
-  timestamps: true,
-  toJSON: { virtuals: true },
-  toObject: { virtuals: true }
-});
+];
 
-// Adding index for search functionality
-productSchema.index({ 
-  name: 'text', 
-  description: 'text',
-  category: 'text'
-});
-
-module.exports = mongoose.model('Product', productSchema);
+module.exports = products;

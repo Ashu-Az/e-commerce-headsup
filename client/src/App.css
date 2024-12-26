@@ -1,10 +1,12 @@
-#root {
+.container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
+.not-found{
+  grid-column: 1 / 5;
+  margin-top: 100px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
